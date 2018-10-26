@@ -1,0 +1,15 @@
+#!/usr/bin/php
+<?php
+
+namespace CreativeServices\Workshop;
+
+use CreativeServices\Workshop\Command\ServeCommand;
+use Symfony\Component\Console\Application;
+
+if (is_file(__DIR__ . '/../../vendor/autoload.php')) {
+    require_once __DIR__ . '/../../vendor/autoload.php';
+}
+
+$app = new Application();
+$app->add(new ServeCommand());
+$app->run();

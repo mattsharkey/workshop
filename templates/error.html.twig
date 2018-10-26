@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<title>{{ title }}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>{% include "error.css" %}</style>
+
+<p class="error-message">{{ error.message }}</p>
+
+<h2>{{ context.name }}</h2>
+
+<ol class="source-code">
+    {% for line in context.code|split("\n") %}
+        <li class="source-line {{ loop.index == error.line ? 'error-line' }}">
+            <code>{{ line ?: ' ' }}</code>
+        </li>
+    {% endfor %}
+</ol>
+
+<p class="error-file">{{ error.file }}, line {{ error.line }}</p>
+
+</html>

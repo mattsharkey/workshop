@@ -1,0 +1,55 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+.template, .template-directory {
+    font-family: 'Fira Code', 'Input Mono', source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+a {
+    color: #0072bc;
+}
+a:visited {
+    color: #662d91;
+}
+a:focus, a:hover {
+    color: #ed1c24;
+}
+body {
+    margin: 0;
+    padding: 48px;
+}
+header {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+.controls {
+    font-size: 14px;
+}
+.template-directory {
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+.template-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.template {
+    align-items: center;
+    border-top: 1px solid #ccc;
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px 0;
+}
+.template-link {
+    text-decoration: none;
+}
+.template-time {
+    margin-left: 16px;
+}

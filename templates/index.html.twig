@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<title>Workshop</title>
+<style>{% include "index.css" %}</style>
+
+<header class="header">
+    <p class="template-directory">
+        {{ directory }}
+    </p>
+    <div class="controls">
+        <label>
+            <input id="openInNewTab" type="checkbox" checked>
+            Open templates in new tab
+        </label>
+    </div>
+</header>
+
+<main>
+    <ul class="template-list">
+        {% for template in templates %}
+            <li class="template">
+                <a class="template-link" href="{{ template.name }}">{{ template.name }}</a>
+                <span class="template-modified">
+            <span class="template-date">{{ template.time|date("Y-m-d") }}</span>
+            <span class="template-time">{{ template.time|date("h:i:s A") }}</span>
+        </span>
+            </li>
+        {% endfor %}
+    </ul>
+</main>
+
+<script>{% include "index.js" %}</script>
+
+</html>
