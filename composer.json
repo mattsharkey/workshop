@@ -10,6 +10,7 @@
             "homepage": "http://creativeservices.illinois.edu/"
         }
     ],
+    "bin": ["bin/workshop"],
     "require": {
         "php": ">=7.0",
         "twig/twig": "~1.20|~2.0",
