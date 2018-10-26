@@ -6,12 +6,7 @@ namespace CreativeServices\Workshop;
 use CreativeServices\Workshop\Command\ServeCommand;
 use Symfony\Component\Console\Application;
 
-$vendor = DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR;
-if (false !== $pos = strrpos(__FILE__, $vendor)) {
-    $vendorDir = substr(__FILE__, 0, $pos + strlen($vendor));
-    $autoloaderPath = $vendorDir . DIRECTORY_SEPARATOR . 'autoload.php';
-    if (is_file($autoloaderPath)) require_once($autoloaderPath);
-}
+require_once __DIR__ . '/../autoload.php';
 
 $app = new Application();
 $app->add(new ServeCommand());

@@ -75,7 +75,6 @@ class Server implements ServerInterface
             ['-dvariables_order=EGPCS', '-S', $this->getAddress(), $this->getRouterPath()]
         );
         $env = [
-            'WORKSHOP_AUTOLOADER_PATH' => $this->getAutoloaderPath(),
             'WORKSHOP_CONFIG_PATH' => $this->getPath(),
         ];
         $process = new Process($command);
@@ -84,17 +83,6 @@ class Server implements ServerInterface
         $process->setEnv($env);
         $process->inheritEnvironmentVariables();
         return $process;
-    }
-
-    private function getAutoloaderPath()
-    {
-        $autoloaderClass = new \ReflectionClass(ClassLoader::class);
-        $vendorDirectory = dirname(dirname($autoloaderClass->getFileName()));
-        $autoloaderPath = $vendorDirectory . DIRECTORY_SEPARATOR . 'autoload.php';
-        if (!is_file($autoloaderPath)) {
-            throw new \RuntimeException("Failed to find the autoloader script");
-        }
-        return $autoloaderPath;
     }
 
     private function getDocumentRoot()
