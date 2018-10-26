@@ -1,8 +1,23 @@
+# Preview Twig templates in the browser
 
-$templates = new TemplateDirectory('/path/to/workshop/templates');
-$environment = new Environment($twig);
-print $environment->render($templates->get('path/to/template.twig');
+Create a `workshop.php` file:
 
-$server = new Server($environment, $templates);
-$server->addAlias('/assets', '/path/to/static/assets');
-$server->respond();
+````
+<?php
+
+$templatesDir = '/path/to/templates';
+
+$twig = new \Twig_Environment(new \Twig_Loader_Filesystem($templatesDir));
+$this->setTwig($twig);
+
+$templates = new TemplateDirectory($templatesDir);
+$this->setTemplates($templates);
+````
+
+Start the workshop server:
+
+````
+./vendor/bin/workshop serve workshop.php
+````
+
+View the workshop at <http://localhost:8000>.
