@@ -28,7 +28,9 @@ class Application implements ApplicationInterface
 
     public function respond(Request $request)
     {
-        $path = $request->getPathInfo();
+        // getPathInfo() sometimes mishandles Javascript URLs, so we do this...
+        $path = $request->server->get('REQUEST_URI', $request->getPathInfo());
+
         if ($path === '/') {
             return new Response($this->makeIndex());
         }
