@@ -50,6 +50,9 @@ class Application implements ApplicationInterface
                 case 'js':
                     $headers['Content-Type'] = 'application/javascript';
                     break;
+                case 'svg':
+                    $headers['Content-Type'] = 'image/svg+xml';
+                    break;
             }
             return new BinaryFileResponse($file, 200, $headers);
         }
